@@ -12,18 +12,21 @@ window.addEventListener("load", function () {
 
 let letters = ["R", "a", "m", "s", "H", "e", "r", "e"];
 
-for (let i = 0; i < letters.length; i++) {
-  let span = document.createElement("span");
-  span.innerText = letters[i];
-  span.style.animationDelay = `${i * 150}ms`;
-  span.classList.add("animated", "iRubberBand");
-  span.addEventListener("animationend", (event) => {
-    span.classList.remove("rubberBand", "iRubberBand");
-    span.style.opacity = 1;
-  });
-  span.onmouseover = (span) => toggleRubberBand(span);
-  name.appendChild(span);
-}
+setTimeout(() => {
+  for (let i = 0; i < letters.length; i++) {
+    let span = document.createElement("span");
+    span.innerText = letters[i];
+    span.style.animationDelay = `${i * 150}ms`;
+    span.classList.add("animated", "iRubberBand");
+    span.addEventListener("animationend", (event) => {
+      span.classList.remove("rubberBand", "iRubberBand");
+      span.style.opacity = 1;
+    });
+    span.onmouseover = (span) => toggleRubberBand(span);
+    name.appendChild(span);
+  }
+}, 1000);
+
 function toggleRubberBand(e) {
   let span = e.target;
   span.classList.add("animated", "rubberBand");
