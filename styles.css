@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600&display=swap");
+/* font-family: "Inconsolata"; */
+
+@import url("https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap");
+/* font-family: 'La Belle Aurore', cursive; */
+
+@font-face {
+  font-family: "Dank Mono";
+  src: url("./assets/DankMono.woff") format("woff");
+}
+
+:root {
+  --black: #2c2c2c;
+  --gray: #f2f2f2;
+  --green: #08fdd8;
+  --purple: #3f2855;
+}
+
+body {
+  /* background-color: var(--black); */
+  padding: 0;
+  margin: 0;
+}
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+
+  50% {
+    scale: 1 1.5;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}
+
+#blob {
+  background: linear-gradient(to right, aquamarine, mediumpurple);
+  height: 30px;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  z-index: 3;
+
+  animation: rotate 20s infinite;
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.float {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+  padding-bottom: 0;
+
+  position: absolute;
+  z-index: 3;
+}
+
+.line {
+  height: 75px;
+  border: 0.5px solid #ffffff;
+}
+
+.social {
+  bottom: 0;
+  left: 50px;
+}
+
+.social svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.social svg path,
+.mail span,
+.topbar .nav span {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.social svg:hover > path {
+  stroke: var(--green);
+}
+
+.mail {
+  bottom: 0;
+  right: 50px;
+  padding: 0;
+}
+
+.mail span {
+  font-family: "Inconsolata";
+  letter-spacing: 0.05em;
+  color: var(--gray);
+  writing-mode: vertical-rl;
+  text-align: center;
+}
+
+.mail span:hover {
+  color: var(--green);
+}
+
+.topbar {
+  background: linear-gradient(
+    90deg,
+    var(--black) 0%,
+    var(--black) 50%,
+    var(--purple) 50%,
+    var(--purple) 100%
+  );
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-inline: 50px;
+  padding-block: 5px;
+}
+
+.topbar svg {
+  align-self: center;
+}
+
+.topbar #name {
+  font-family: "Inconsolata";
+  letter-spacing: 0.05em;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--gray);
+  justify-self: center;
+  align-self: center;
+
+  display: flex;
+}
+
+.topbar #name span:nth-child(4) {
+  margin-right: 12px;
+}
+
+.topbar .nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Dank Mono";
+  font-size: 14px;
+  color: var(--gray);
+  background-color: rgba(242, 242, 242, 0.1);
+  padding: 8px;
+  border-radius: 100px;
+  justify-self: end;
+}
+
+.topbar .nav span {
+  padding-inline: 15px;
+  padding-block: 8px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.topbar .nav span:hover {
+  background-color: rgba(242, 242, 242, 0.1);
+}
+
+.topbar .nav span.selected {
+  background-color: rgba(242, 242, 242, 0.1);
+  color: var(--green);
+}
+
+.side {
+  height: calc(100vh - 59px);
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+
+  position: absolute;
+  overflow: hidden;
+}
+
+.side .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
+.side .title {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 30px;
+
+  color: var(--gray);
+}
+
+#left {
+  background-color: var(--black);
+  z-index: 2;
+}
+
+#right {
+  background-color: var(--purple);
+}
+
+.side .text1 {
+  font-family: "Inconsolata";
+  font-size: 16px;
+  color: #08fdd8;
+}
+
+.side .text2 {
+  font-family: "Dank Mono";
+  font-size: 40px;
+  color: #ffffff;
+}
+
+.side .text3 {
+  font-family: "Dank Mono";
+  font-size: 40px;
+  color: rgba(242, 242, 242, 0.6);
+
+  max-height: min-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.side#right .text3 {
+  gap: 23.5px;
+}
+
+.side .text3 .fancy {
+  font-family: "La Belle Aurore", cursive;
+  font-size: 40px;
+  line-height: 1;
+  color: var(--green);
+}
+
+.tag-child,
+.tag-parent {
+  position: relative;
+}
+
+.tag-child::before,
+.tag-child::after,
+.tag-parent::before,
+.tag-parent::after {
+  position: absolute;
+
+  font-family: "La Belle Aurore", cursive;
+  font-size: 13px;
+  color: rgba(242, 242, 242, 0.6);
+}
+
+.tag-child::before,
+.tag-child::after {
+  left: -15px;
+}
+
+.tag-parent::before,
+.tag-parent::after {
+  left: -40px;
+}
+
+.tag-child::before,
+.tag-parent::before {
+  content: "<" attr(data-tag) ">";
+  top: -15px;
+}
+
+.tag-parent::before {
+  top: -30px;
+}
+
+.tag-child::after,
+.tag-parent::after {
+  content: "</ " attr(data-tag) ">";
+  bottom: -15px;
+}
+
+.tag-parent::after {
+  bottom: -30px;
+}
+
+.html-tag-top,
+.html-tag-btm,
+.body-tag-top,
+.body-tag-btm {
+  position: absolute;
+  height: 20px;
+  font-family: "La Belle Aurore", cursive;
+  font-size: 13px;
+  color: rgba(242, 242, 242, 0.6);
+  z-index: 100;
+}
+
+.html-tag-top {
+  top: 100px;
+  left: 200px;
+}
+
+.body-tag-top {
+  top: 150px;
+  left: 250px;
+}
+
+.html-tag-btm {
+  bottom: 100px;
+  left: 200px;
+}
+.body-tag-btm {
+  bottom: 150px;
+  left: 250px;
+}
+
+.html-tag-top::before {
+  content: "<html>";
+}
+
+.html-tag-btm::after {
+  content: "</ html>";
+}
+
+.body-tag-top::before {
+  content: "<body>";
+}
+
+.body-tag-btm::after {
+  content: "</ body>";
+}
