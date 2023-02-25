@@ -16,10 +16,18 @@
   --purple: #3f2855;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  /* background-color: var(--black); */
+  background-color: var(--black);
   padding: 0;
   margin: 0;
+}
+
+a {
+  all: unset;
 }
 
 #loader {
@@ -167,20 +175,34 @@ body {
   }
 }
 
-#blob {
-  background: linear-gradient(to right, aquamarine, mediumpurple);
-  height: 30px;
-  aspect-ratio: 1;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  translate: -50% -50%;
-  border-radius: 50%;
-  z-index: 3;
+section {
+  height: 100vh;
+}
 
-  animation: rotate 20s infinite;
-  filter: blur(20px);
+#cursor,
+#cursor-dot {
+  position: fixed;
   pointer-events: none;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+#cursor {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--gray);
+}
+
+#cursor-dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--gray);
+  -webkit-animation: 0.4s linear;
+  animation: 0.4s linear;
 }
 
 .float {
@@ -191,7 +213,8 @@ body {
   gap: 25px;
   padding-bottom: 0;
 
-  position: absolute;
+  position: fixed;
+  bottom: 0;
   z-index: 3;
 }
 
@@ -201,7 +224,6 @@ body {
 }
 
 .social {
-  bottom: 0;
   left: 50px;
 }
 
@@ -213,8 +235,10 @@ body {
 .social svg,
 .social svg path,
 .mail span,
-.topbar #nav span,
-.topbar svg {
+.topbar,
+.topbar #nav a,
+.topbar svg,
+#cursor {
   transition: all 100ms ease-in-out;
   cursor: pointer;
 }
@@ -232,7 +256,6 @@ body {
 }
 
 .mail {
-  bottom: 0;
   right: 50px;
   padding: 0;
 }
@@ -260,12 +283,17 @@ body {
   display: grid;
   place-content: center;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  padding-inline: 50px;
+  /* padding-inline: 50px; */
   padding-block: 5px;
+
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
 .topbar svg {
   align-self: center;
+  padding-left: 50px;
 }
 
 .topbar svg:hover {
@@ -283,17 +311,13 @@ body {
 .topbar #name {
   font-family: "Inconsolata";
   letter-spacing: 0.05em;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 600;
   color: var(--gray);
   justify-self: center;
   align-self: center;
 
   display: flex;
-}
-
-.topbar #name:hover {
-  cursor: default;
 }
 
 .topbar #name span {
@@ -311,6 +335,7 @@ body {
   place-items: center;
 
   padding: 8px;
+  margin-right: 50px;
   border-radius: 100px;
   justify-self: end;
 
@@ -333,19 +358,19 @@ body {
   pointer-events: none;
 }
 
-.topbar #nav span {
+.topbar #nav a {
   padding-inline: 15px;
   padding-block: 8px;
   border-radius: 100px;
   cursor: pointer;
 }
 
-.topbar #nav span.selected {
+.topbar #nav a.selected {
   color: var(--green);
 }
 
 .side {
-  height: calc(100vh - 59px);
+  height: 100vh;
   width: 100%;
 
   display: grid;
@@ -367,8 +392,17 @@ body {
   flex-direction: column;
   align-items: start;
   gap: 30px;
-
+  max-width: 650px;
   color: var(--gray);
+  padding-bottom: 100px;
+}
+
+.title .intro-text {
+  font-family: "Inconsolata";
+  font-size: 16px;
+  color: var(--gray);
+  line-height: 25px;
+  height: 100px;
 }
 
 #left {
@@ -456,11 +490,11 @@ body {
 .tag-child::after,
 .tag-parent::after {
   content: "</ " attr(data-tag) ">";
-  bottom: -15px;
+  bottom: -20px;
 }
 
 .tag-parent::after {
-  bottom: -30px;
+  bottom: 55px;
 }
 
 .html-tag-top,

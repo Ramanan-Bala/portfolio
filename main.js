@@ -2,7 +2,10 @@ const left = document.getElementById("left");
 const topbar = document.getElementById("topbar");
 const name = document.getElementById("name");
 const blob = document.getElementById("blob");
+const cursor = document.getElementById("cursor");
+const cursorDot = document.getElementById("cursor-dot");
 const nav = document.getElementById("nav");
+const home = document.getElementById("home");
 
 window.addEventListener("load", function () {
   const loader = document.getElementById("loader");
@@ -10,6 +13,19 @@ window.addEventListener("load", function () {
     loader.classList.add("fadeOut");
   }, 1000);
 });
+
+window.onscroll = function (e) {
+  let p = (e.clientX / window.innerWidth) * 100;
+  if (document.documentElement.scrollTop < home.offsetHeight)
+    topbar.style.background = `linear-gradient(
+    90deg,
+    var(--black) 0%,
+    var(--black) ${p}%,
+    var(--purple) ${p}%,
+    var(--purple) ${100 - p}%
+  )`;
+  else topbar.style.background = "#2c2c2c";
+};
 
 let letters = ["R", "a", "m", "s", "H", "e", "r", "e"];
 
@@ -33,37 +49,75 @@ function toggleRubberBand(e) {
   span.classList.add("animated", "rubberBand");
 }
 
+function setCursor(size, border, opacity, bg) {
+  cursor.style.width = `${size}px`;
+  cursor.style.height = `${size}px`;
+  if (opacity) cursor.style.opacity = opacity;
+  if (border) cursor.style.borderWidth = `${border}px`;
+  if (bg) cursor.style.backgroundColor = bg;
+}
+
 const handleMove = (e) => {
+  const cursorStyle = window.getComputedStyle(e.target)["cursor"];
+
   let p = (e.clientX / window.innerWidth) * 100;
   left.style.width = `${p}%`;
-  topbar.style.background = `linear-gradient(
+  if (document.documentElement.scrollTop < home.offsetHeight)
+    topbar.style.background = `linear-gradient(
     90deg,
     var(--black) 0%,
     var(--black) ${p}%,
     var(--purple) ${p}%,
     var(--purple) ${100 - p}%
-  )`;
+    )`;
+  else topbar.style.background = "#2c2c2c";
+  if (cursorStyle == "pointer") setCursor(48, 1.5, 0.2, "#f2f2f2");
+  else setCursor(24, 1.5, 1, "transparent");
 };
 
 document.onmousemove = (e) => handleMove(e);
 
 document.ontouchmove = (e) => handleMove(e.touches[0]);
 
-blob.classList.add("animated");
+cursor.classList.add("animated");
 
-window.onpointermove = (event) => {
-  const { clientX, clientY } = event;
+window.addEventListener("mousedown", (e) => {
+  setCursor(48, 1.5);
+});
 
-  blob.animate(
-    {
-      left: `${clientX}px`,
-      top: `${clientY}px`,
-    },
-    { duration: 3000, fill: "forwards" }
-  );
+window.addEventListener("mouseup", (e) => {
+  const cursorStyle = window.getComputedStyle(e.target)["cursor"];
+  setCursor(24, 2);
+  setTimeout(() => {
+    if (cursorStyle == "pointer") {
+      setCursor(48);
+    }
+  }, 100);
+});
+
+window.onpointermove = (e) => {
+  const { clientX, clientY } = e;
+
+  const keyframe = {
+    left: `${clientX}px`,
+    top: `${clientY}px`,
+  };
+
+  const option = (time) => {
+    return {
+      duration: time,
+      fill: "forwards",
+    };
+  };
+
+  blob.animate(keyframe, option(600));
+
+  cursor.animate(keyframe, option(600));
+
+  cursorDot.animate(keyframe, option(1200));
 };
 
-let navItems = nav.querySelectorAll("span");
+let navItems = nav.querySelectorAll("a");
 let navIndicator = nav.querySelector("#indicator");
 
 function activeLink() {
