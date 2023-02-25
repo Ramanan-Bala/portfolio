@@ -2,6 +2,7 @@ const left = document.getElementById("left");
 const topbar = document.getElementById("topbar");
 const name = document.getElementById("name");
 const blob = document.getElementById("blob");
+const nav = document.getElementById("nav");
 
 window.addEventListener("load", function () {
   const loader = document.getElementById("loader");
@@ -61,3 +62,26 @@ window.onpointermove = (event) => {
     { duration: 3000, fill: "forwards" }
   );
 };
+
+let navItems = nav.querySelectorAll("span");
+let navIndicator = nav.querySelector("#indicator");
+
+function activeLink() {
+  navItems.forEach((item) => item.classList.remove("selected"));
+}
+
+navItems.forEach((item, i) => {
+  item.addEventListener("mouseover", () => {
+    navIndicator.style.left = `${10 + 83 * i}px`;
+  });
+  item.addEventListener("mouseleave", () => {
+    let pos = navIndicator.getAttribute("pos");
+    navIndicator.style.left = `${10 + 83 * pos}px`;
+  });
+  item.addEventListener("click", () => {
+    activeLink();
+    item.classList.add("selected");
+    navIndicator.style.left = `${10 + 83 * i}px`;
+    navIndicator.setAttribute("pos", i);
+  });
+});

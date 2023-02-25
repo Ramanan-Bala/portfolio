@@ -56,7 +56,7 @@ body {
 .hexagon path {
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
-  animation: draw 1s ease-in-out forwards;
+  animation: draw 2s ease-in-out forwards;
 }
 
 @keyframes draw {
@@ -213,7 +213,7 @@ body {
 .social svg,
 .social svg path,
 .mail span,
-.topbar .nav span,
+.topbar #nav span,
 .topbar svg {
   transition: all 100ms ease-in-out;
   cursor: pointer;
@@ -304,32 +304,43 @@ body {
   margin-right: 12px;
 }
 
-.topbar .nav {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.topbar #nav {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  place-items: center;
+
+  padding: 8px;
+  border-radius: 100px;
+  justify-self: end;
+
   font-family: "Dank Mono";
   font-size: 14px;
   color: var(--gray);
   background-color: rgba(242, 242, 242, 0.1);
-  padding: 8px;
-  border-radius: 100px;
-  justify-self: end;
 }
 
-.topbar .nav span {
+.topbar #nav #indicator {
+  position: absolute;
+  left: 10px;
+  background-color: rgba(242, 242, 242, 0.1);
+  height: 33px;
+  width: 83px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 500ms ease-in-out;
+
+  pointer-events: none;
+}
+
+.topbar #nav span {
   padding-inline: 15px;
   padding-block: 8px;
   border-radius: 100px;
   cursor: pointer;
 }
 
-.topbar .nav span:hover {
-  background-color: rgba(242, 242, 242, 0.1);
-}
-
-.topbar .nav span.selected {
-  background-color: rgba(242, 242, 242, 0.1);
+.topbar #nav span.selected {
   color: var(--green);
 }
 
