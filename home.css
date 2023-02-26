@@ -214,6 +214,7 @@ section {
 }
 
 .float {
+  opacity: 0;
   display: flex;
   justify-items: center;
   align-items: center;
@@ -255,11 +256,11 @@ section {
   transform: scale(1.5);
 }
 
-.social svg:hover:not(.mail) > path {
+.social svg:hover:not(.npm) > path {
   stroke: var(--green);
 }
 
-.social .mail:hover > path {
+.social .npm:hover > path {
   fill: var(--green);
 }
 
@@ -281,6 +282,7 @@ section {
 }
 
 .topbar {
+  opacity: 0;
   background: linear-gradient(
     90deg,
     var(--black) 0%,
@@ -297,6 +299,7 @@ section {
   position: fixed;
   width: 100%;
   z-index: 10;
+  cursor: default;
 }
 
 .topbar svg {
@@ -393,6 +396,10 @@ section {
   flex-direction: column;
   align-items: center;
   width: 100vw;
+}
+
+.side .container > div > * {
+  opacity: 0;
 }
 
 .side .title {
