@@ -87,6 +87,7 @@ window.onpointermove = (e) => {
 
   cursorDot.animate(keyframe, option(1200));
 };
+
 // !! skill
 
 const subtitles = document.querySelectorAll(".card-subtitle");

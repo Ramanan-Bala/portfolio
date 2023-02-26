@@ -14,6 +14,9 @@
   --gray: #f2f2f2;
   --green: #08fdd8;
   --purple: #3f2855;
+  --g1: rgb(98, 0, 234);
+  --g2: rgb(236, 64, 122);
+  --g3: rgb(253, 216, 53);
 }
 
 html {
@@ -392,10 +395,21 @@ section {
 }
 
 .side .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100vw;
+}
+
+.side .container::before {
+  content: " ";
+  width: 2px;
+  height: 300px;
+  top: 5px;
+  background: linear-gradient(0deg, var(--g1) 0%, var(--g2) 100%);
+  position: absolute;
+  left: 475px;
 }
 
 .side .container > div > * {
@@ -479,7 +493,7 @@ section {
 
   font-family: "La Belle Aurore", cursive;
   font-size: 13px;
-  color: rgba(242, 242, 242, 0.6);
+  color: rgba(242, 242, 242, 0.2);
 }
 
 .tag-child::before,
@@ -520,7 +534,7 @@ section {
   height: 20px;
   font-family: "La Belle Aurore", cursive;
   font-size: 13px;
-  color: rgba(242, 242, 242, 0.6);
+  color: rgba(242, 242, 242, 0.2);
   z-index: 100;
 }
 

@@ -1,16 +1,16 @@
+const cursor = document.getElementById("cursor");
+
 const nav = document.getElementById("nav");
 const navItems = nav.querySelectorAll("a");
 const navIndicator = nav.querySelector("#indicator");
 
 const home = document.getElementById("home");
 
-const sections = document.querySelectorAll("section");
-
-const left = document.getElementById("left");
-
 const topbar = document.getElementById("topbar");
-
 const name = document.getElementById("name");
+
+const sections = document.querySelectorAll("section");
+const left = document.getElementById("left");
 
 window.onscroll = function (e) {
   let p = (e.clientX / window.innerWidth) * 100;
@@ -84,6 +84,14 @@ navItems.forEach((item, i) => {
   });
 });
 
+function setCursor(size, border, opacity, bg) {
+  cursor.style.width = `${size}px`;
+  cursor.style.height = `${size}px`;
+  if (opacity) cursor.style.opacity = opacity;
+  if (border) cursor.style.borderWidth = `${border}px`;
+  if (bg) cursor.style.backgroundColor = bg;
+}
+
 const handleMove = (e) => {
   const cursorStyle = window.getComputedStyle(e.target)["cursor"];
 
@@ -110,7 +118,7 @@ let contents = document.querySelectorAll(".title");
 
 let slideFrames = [
   {
-    transform: "translateY(40%)",
+    transform: "translateY(30%)",
     opacity: 0,
   },
   {
@@ -124,7 +132,7 @@ contents.forEach((content) => {
     const element = content.children[i];
     element.animate(slideFrames, {
       duration: 200,
-      delay: 2300 + i * 350,
+      delay: 2300 + i * 200,
       fill: "forwards",
     });
   }
@@ -135,5 +143,5 @@ topbar.animate(slideFrames, { duration: 200, delay: 2000, fill: "forwards" });
 const social = document.querySelectorAll(".float");
 
 social.forEach((s) => {
-  s.animate(slideFrames, { duration: 200, delay: 3600, fill: "forwards" });
+  s.animate(slideFrames, { duration: 200, delay: 3200, fill: "forwards" });
 });
