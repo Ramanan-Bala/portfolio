@@ -247,7 +247,6 @@ section {
 .social svg,
 .social svg path,
 .mail span,
-.topbar,
 .topbar #nav a,
 .topbar svg,
 #cursor {
@@ -286,13 +285,13 @@ section {
 
 .topbar {
   opacity: 0;
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
     var(--black) 0%,
     var(--black) 50%,
     var(--purple) 50%,
     var(--purple) 100%
-  );
+  ); */
   display: grid;
   place-content: center;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -303,9 +302,11 @@ section {
   width: 100%;
   z-index: 10;
   cursor: default;
+
+  transition: all 500ms ease-in-out;
 }
 
-.topbar svg {
+.topbar a {
   align-self: center;
   padding-left: 50px;
 }
@@ -453,6 +454,7 @@ section {
 .side .text2 {
   font-family: "Dank Mono";
   font-size: 40px;
+  font-weight: 800;
   color: #ffffff;
 }
 

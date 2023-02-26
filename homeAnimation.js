@@ -12,17 +12,25 @@ const name = document.getElementById("name");
 const sections = document.querySelectorAll("section");
 const left = document.getElementById("left");
 
+var prevScrollPos = window.pageYOffset;
+
 window.onscroll = function (e) {
-  let p = (e.clientX / window.innerWidth) * 100;
-  if (document.documentElement.scrollTop < home.offsetHeight)
-    topbar.style.background = `linear-gradient(
-    90deg,
-    var(--black) 0%,
-    var(--black) ${p}%,
-    var(--purple) ${p}%,
-    var(--purple) ${100 - p}%
-  )`;
-  else topbar.style.background = "#2c2c2c";
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollPos > currentScrollPos) {
+    topbar.style.top = "0";
+  } else {
+    topbar.style.top = "-100px";
+  }
+  prevScrollPos = currentScrollPos;
+
+  if (currentScrollPos == 0) {
+    topbar.style.backdropFilter = "blur(0px)";
+    topbar.style.boxShadow = "none";
+  } else {
+    topbar.style.backdropFilter = "blur(10px)";
+    topbar.style.boxShadow = "0 10px 30px -10px var(--black)";
+  }
+
   var current = "";
 
   sections.forEach((section) => {
@@ -97,15 +105,6 @@ const handleMove = (e) => {
 
   let p = (e.clientX / window.innerWidth) * 100;
   left.style.width = `${p}%`;
-  if (document.documentElement.scrollTop < home.offsetHeight)
-    topbar.style.background = `linear-gradient(
-    90deg,
-    var(--black) 0%,
-    var(--black) ${p}%,
-    var(--purple) ${p}%,
-    var(--purple) ${100 - p}%
-    )`;
-  else topbar.style.background = "#2c2c2c";
   if (cursorStyle == "pointer") setCursor(48, 1.5, 0.2, "#f2f2f2");
   else setCursor(24, 1.5, 1, "transparent");
 };
