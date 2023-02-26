@@ -64,7 +64,11 @@ a {
 .hexagon path {
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
-  animation: draw 2s ease-in-out forwards;
+  animation: draw 1s ease-in-out forwards;
+}
+
+.hexagon path:nth-child(2) {
+  opacity: 0;
 }
 
 @keyframes draw {
@@ -159,6 +163,10 @@ a {
 
 .iRubberBand {
   animation: iRubberBand 1s;
+}
+
+.fadeIn {
+  animation: fadeIn 1s;
 }
 
 @keyframes rotate {

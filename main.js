@@ -11,10 +11,32 @@ const navIndicator = nav.querySelector("#indicator");
 const sections = document.querySelectorAll("section");
 
 window.addEventListener("load", function () {
+  const hexagon = document.getElementById("hexagon");
+  let R = hexagon.getElementsByTagName("path")[1];
+
+  R.animate(
+    [
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+      },
+    ],
+    { duration: 500, delay: 1000, fill: "forwards" }
+  );
+
+  hexagon.animate(
+    {
+      transform: "scale(0)",
+    },
+    { duration: 200, delay: 1700, fill: "forwards" }
+  );
+
   const loader = document.getElementById("loader");
   setTimeout(function () {
     loader.classList.add("fadeOut");
-  }, 1000);
+  }, 1700);
 });
 
 window.onscroll = function (e) {
@@ -99,8 +121,6 @@ const handleMove = (e) => {
 document.onmousemove = (e) => handleMove(e);
 
 document.ontouchmove = (e) => handleMove(e.touches[0]);
-
-cursor.classList.add("animated");
 
 window.addEventListener("mousedown", (e) => {
   setCursor(48, 1.5);
