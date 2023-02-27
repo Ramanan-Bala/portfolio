@@ -47,8 +47,8 @@ document.addEventListener("scroll", () => {
   //   topbar.style.backdropFilter = "blur(0px)";
   //   topbar.style.boxShadow = "none";
   // } else {
-  topbar.style.backdropFilter = "blur(10px)";
-  topbar.style.boxShadow = "0 10px 30px -10px var(--black)";
+  // topbar.style.backdropFilter = "blur(10px)";
+  // topbar.style.boxShadow = "0 10px 30px -10px var(--black)";
   // }
 
   sections.forEach((section) => {

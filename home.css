@@ -324,6 +324,8 @@ section {
   width: 100%;
   z-index: 10;
   cursor: default;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px -10px var(--black);
 
   transition: all 500ms ease-in-out;
 }
@@ -453,7 +455,7 @@ section {
 
 .intro .text2 {
   font-family: "Dank Mono";
-  font-size: clamp(30px, 8vw, 50px);
+  font-size: clamp(25px, 8vw, 50px);
   font-weight: 800;
   color: #ffffff;
 }
@@ -474,7 +476,7 @@ section {
   justify-content: center;
   align-items: flex-end;
   font-family: "La Belle Aurore", cursive;
-  font-size: clamp(30px, 8vw, 50px);
+  font-size: clamp(25px, 8vw, 50px);
   line-height: 1;
   vertical-align: bottom;
   color: var(--green);
