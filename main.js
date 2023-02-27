@@ -9,6 +9,7 @@ var current = "";
 sections.forEach((section) => {
   section.style.minHeight = `${screen.height}px`;
   if (screen.width < 640) {
+    section.style.minHeight = `${screen.height - 150}px`;
     cursor.style.display = "none";
     cursorDot.style.display = "none";
   }
