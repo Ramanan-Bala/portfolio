@@ -139,7 +139,7 @@
       <div class="line"></div>
     </div>
     <div id="blob"></div>
-    <div id="cursor-dot"></div>
+    <div id="cursorDot"></div>
     <div id="cursor"></div>
 
     <div id="content">
@@ -172,57 +172,34 @@
           <a href="#skill">Skill</a>
           <a>About</a>
           <a>Contact</a>
-          <div id="indicator"></div>
+          <div id="navIndicator"></div>
         </div>
       </div>
       <section id="home">
-        <div id="left" class="side">
-          <div class="container">
-            <div data-tag="container" class="title tag-parent">
-              <span class="text1">Hi, my name is</span>
-              <span data-tag="name" class="text2 tag-child"
-                >Ramanan Balamurugan</span
-              >
-              <div class="text3">
-                Iam a
-                <span class="fancy">frontend</span>
-                developer
-              </div>
-              <span data-tag="p" class="intro-text tag-child">
-                I create successful responsive websites that are fast, easy to
-                use, and built with best practices. The main area of my
-                expertise is front-end development, HTML, CSS, JS, experienced
-                in developing real-time applications, animations, and coding
-                interactive layouts.
-              </span>
+        <div class="gradient-border">
+          <div id="homeContent" class="intro">
+            <span class="text1">Hi, my name is</span>
+            <span data-tag="name" class="text2 tag-child"
+              >Ramanan Balamurugan</span
+            >
+            <div class="text3">
+              <span>I'm a</span>
+              <span class="fancy">frontend</span>
+              <span>developer</span>
             </div>
-          </div>
-        </div>
-        <div id="right" class="side">
-          <div class="container">
-            <div data-tag="container" class="title tag-parent">
-              <span class="text1">Hi, my name is</span>
-              <span data-tag="name" class="text2 tag-child"
-                >Ramanan Balamurugan</span
-              >
-              <div class="text3">
-                Iam a
-                <span class="fancy">backend</span>
-                developer
-              </div>
-              <span data-tag="p" class="intro-text tag-child">
-                I create successful restful api that are fast, easy to use, and
-                built with best practices. I have experience in creating api
-                using libraries like Spring-Boot, Node ExpressJS, Sequelize,
-                Mongoose and Django.
-              </span>
-            </div>
+            <span data-tag="p" class="intro-text tag-child">
+              I create successful responsive websites that are fast, easy to
+              use, and built with best practices. The main area of my expertise
+              is front-end development, HTML, CSS, JS, experienced in developing
+              real-time applications, animations, and coding interactive
+              layouts.
+            </span>
           </div>
         </div>
       </section>
       <section id="skill">
         <h1>Skills</h1>
-        <div class="card-container">
+        <div id="skillContent" class="card-container">
           <div class="card">
             <div class="card-content">
               <h3 class="card-title">Frontend Skills</h3>
@@ -241,7 +218,9 @@
       </section>
     </div>
 
-    <script src="main.js" type="module"></script>
-    <script src="homeAnimation.js" type="module"></script>
+    <script src="main.js" type="module" defer></script>
+    <script src="pageAnimation.js" type="module" defer></script>
+    <script src="skillAnimation.js" type="module" defer></script>
+    <script src="homeAnimation.js" type="module" defer></script>
   </body>
 </html>
