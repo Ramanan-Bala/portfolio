@@ -110,7 +110,7 @@ a {
   font-family: "Inconsolata";
   font-weight: 400;
   color: white;
-  font-size: 2vmin;
+  /* font-size: 2vmin; */
   padding: 0;
   padding-left: 10px;
   margin-top: 1vmin;
