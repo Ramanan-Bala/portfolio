@@ -195,10 +195,19 @@ a {
   }
 }
 
+section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  /* height: 100vh; */
+  padding: 0px;
+}
+
 @media (min-width: 640px) {
-  section {
+  /* section {
     height: 100vh;
-  }
+  } */
   #ham {
     display: none;
   }
