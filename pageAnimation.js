@@ -8,7 +8,7 @@ let slideFrames = {
 };
 
 social.forEach((s) => {
-  s.animate(slideFrames, { duration: 200, delay: 3800, fill: "forwards" });
+  s.animate(slideFrames, { duration: 200, delay: 2600, fill: "forwards" });
 });
 
 topbar.animate(slideFrames, { duration: 200, delay: 2000, fill: "forwards" });
@@ -21,7 +21,7 @@ const homeObserver = new IntersectionObserver((entries) => {
     for (let i = 0; i < content.children.length; i++) {
       const element = content.children[i];
       if (entry.isIntersecting) {
-        let delay = i * 400;
+        let delay = i * 100;
         element.animate(slideFrames, {
           duration: 200,
           delay: delay,

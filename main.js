@@ -36,20 +36,20 @@ navItems.forEach((item, i) => {
 
 document.addEventListener("scroll", () => {
   var currentScrollPos = window.pageYOffset;
-  if (prevScrollPos > currentScrollPos) {
-    topbar.style.top = "0";
-  } else {
-    topbar.style.top = "-100px";
-  }
+  // if (prevScrollPos > currentScrollPos) {
+  //   topbar.style.top = "0";
+  // } else {
+  //   topbar.style.top = "-100px";
+  // }
   prevScrollPos = currentScrollPos;
 
-  if (currentScrollPos == 0) {
-    topbar.style.backdropFilter = "blur(0px)";
-    topbar.style.boxShadow = "none";
-  } else {
-    topbar.style.backdropFilter = "blur(10px)";
-    topbar.style.boxShadow = "0 10px 30px -10px var(--black)";
-  }
+  // if (currentScrollPos == 0) {
+  //   topbar.style.backdropFilter = "blur(0px)";
+  //   topbar.style.boxShadow = "none";
+  // } else {
+  topbar.style.backdropFilter = "blur(10px)";
+  topbar.style.boxShadow = "0 10px 30px -10px var(--black)";
+  // }
 
   sections.forEach((section) => {
     const sectionTop = section.offsetTop;
