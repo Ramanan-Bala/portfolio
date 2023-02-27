@@ -613,4 +613,7 @@ section {
     justify-self: end;
     padding-right: 30px;
   }
+  .hexagon-container {
+    height: calc(100vh - 150px);
+  }
 }
