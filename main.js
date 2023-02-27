@@ -36,11 +36,11 @@ navItems.forEach((item, i) => {
 
 document.addEventListener("scroll", () => {
   var currentScrollPos = window.pageYOffset;
-  // if (prevScrollPos > currentScrollPos) {
-  //   topbar.style.top = "0";
-  // } else {
-  //   topbar.style.top = "-100px";
-  // }
+  if (prevScrollPos > currentScrollPos) {
+    topbar.style.top = "0";
+  } else {
+    topbar.style.top = "-100px";
+  }
   prevScrollPos = currentScrollPos;
 
   // if (currentScrollPos == 0) {

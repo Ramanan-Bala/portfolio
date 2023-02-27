@@ -200,14 +200,10 @@ section {
   justify-content: center;
   flex-direction: column;
   min-height: 100dvh;
-  /* height: 100vh; */
   padding: 0px;
 }
 
 @media (min-width: 640px) {
-  /* section {
-    height: 100vh;
-  } */
   #ham {
     display: none;
   }
