@@ -202,6 +202,7 @@ section {
   min-height: 100vh;
   /* height: 100vh; */
   padding: 0px;
+  padding-bottom: 150px;
 }
 
 @media (min-width: 640px) {
