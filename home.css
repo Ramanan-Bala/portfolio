@@ -202,7 +202,6 @@ section {
   min-height: 100vh;
   /* height: 100vh; */
   padding: 0px;
-  padding-bottom: 150px;
 }
 
 @media (min-width: 640px) {
@@ -326,6 +325,7 @@ section {
   z-index: 10;
   cursor: default;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px -10px var(--black);
 
   transition: all 500ms ease-in-out;
@@ -613,8 +613,5 @@ section {
     grid-column-start: 3;
     justify-self: end;
     padding-right: 30px;
-  }
-  .hexagon-container {
-    height: calc(100vh - 150px);
   }
 }
