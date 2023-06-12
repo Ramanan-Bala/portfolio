@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600&display=swap");
+/* font-family: "Inconsolata"; */
+
+@import url("https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap");
+/* font-family: 'La Belle Aurore', cursive; */
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap");
+// font-family: 'Fira Mono', monospace;
+
+@font-face {
+  font-family: "Dank Mono";
+  src: url("./assets/DankMono.woff") format("woff");
+}
+
+:root {
+  --fz-xxs: 12px;
+  --fz-xs: 13px;
+  --fz-sm: 14px;
+  --fz-md: 16px;
+  --fz-lg: 18px;
+  --fz-xl: 20px;
+  --fz-xxl: 22px;
+  --fz-heading: 32px;
+
+  --black: #2c2c2c;
+  --gray: #f2f2f2;
+  --green: #08fdd8;
+  --purple: #3f2855;
+  --g1: rgb(98, 0, 234);
+  --g2: rgb(236, 64, 122);
+  --g3: rgb(253, 216, 53);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-black;
+}

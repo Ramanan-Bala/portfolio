@@ -1,0 +1,139 @@
+#home {
+  @apply w-full;
+  height: calc(100vh - 85px);
+  width: fit-content;
+  margin-left: 20%;
+  padding-top: 12%;
+
+  .gradient-border {
+    @apply border-y-0 md:pl-12 px-3;
+    border-image-source: linear-gradient(0deg, var(--g1) 0%, var(--g2) 100%);
+    border-image-slice: 1;
+  }
+
+  .intro {
+    @apply relative max-w-3xl text-left flex flex-col gap-5 text-gray;
+
+    > * {
+      position: relative;
+    }
+
+    .intro-text {
+      @apply text-base max-w-2xl text-gray leading-6 md:h-[100px] h-[120px];
+      font-family: "Inconsolata";
+    }
+
+    .text1 {
+      @apply text-lg text-green;
+      font-family: "Inconsolata";
+    }
+
+    .text2 {
+      font-family: "Dank Mono";
+      font-size: clamp(40px, 8vw, 70px);
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .text3 {
+      @apply flex md:gap-8 gap-3;
+      font-family: "Dank Mono";
+      font-size: clamp(25px, 8vw, 50px);
+      color: rgba(242, 242, 242, 0.6);
+
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .fancy {
+    @apply flex items-center justify-center text-green;
+    font-family: "La Belle Aurore", cursive;
+    font-size: clamp(25px, 8vw, 50px);
+    line-height: 1;
+    vertical-align: bottom;
+  }
+}
+
+.tag-child {
+  position: relative;
+}
+
+.tag-child::before,
+.tag-child::after {
+  position: absolute;
+
+  font-family: "La Belle Aurore", cursive;
+  font-size: 1rem;
+  color: rgba(242, 242, 242, 0.2);
+  left: -15px;
+}
+
+.tag-child::before {
+  content: "<" attr(data-tag) ">";
+  top: -15px;
+}
+
+.tag-child::after {
+  content: "</ " attr(data-tag) ">";
+  bottom: -20px;
+}
+
+.tags {
+  color: #515152;
+  position: absolute;
+  bottom: 0;
+  left: 17%;
+  font-size: 1rem;
+  font-family: "La Belle Aurore", cursive;
+}
+
+.top-tags {
+  bottom: auto;
+  top: 12%;
+}
+
+.top-tags:after {
+  content: "<body>";
+  font-family: "La Belle Aurore", cursive;
+  color: #515152;
+  position: absolute;
+  margin-left: 2rem;
+}
+
+.bottom-tags {
+  bottom: 25%;
+  top: auto;
+}
+
+.bottom-tags:before {
+  content: "</body>";
+  font-family: "La Belle Aurore", cursive;
+  color: #515152;
+  position: absolute;
+  margin-left: 2rem;
+}
+
+@media (max-width: 640px) {
+  .text2,
+  .text3,
+  .fancy {
+    font-size: 28px !important;
+  }
+  .tag-child::before,
+  .tag-child::after,
+  .tags {
+    left: 0px;
+  }
+  .top-tags {
+    top: 15%;
+  }
+  .bottom-tags {
+    bottom: 0;
+  }
+
+  .intro-text {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+}

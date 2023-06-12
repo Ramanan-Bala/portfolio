@@ -1,0 +1,41 @@
+.topbar {
+  @apply flex justify-between p-4;
+
+  .logo {
+    svg {
+      @apply self-center h-14 w-14 cursor-pointer;
+    }
+  }
+  .name {
+    @apply flex text-[32px] font-semibold text-gray;
+    font-family: "Inconsolata";
+    letter-spacing: 0.05em;
+    div:nth-child(4) {
+      @apply mr-3;
+    }
+  }
+
+  #nav {
+    @apply relative grid grid-cols-4 self-center place-items-center p-2 rounded-full text-gray;
+    * {
+      @apply transition-all duration-500;
+    }
+    font-family: "Dank Mono";
+    font-size: 14px;
+    background-color: rgba(242, 242, 242, 0.1);
+    .navIndicator {
+      @apply absolute rounded-full cursor-pointer pointer-events-none top-2.5;
+      background-color: rgba(242, 242, 242, 0.1);
+      height: 33px;
+      width: 83px;
+    }
+    a {
+      @apply rounded-full cursor-pointer;
+      padding-inline: 15px;
+      padding-block: 8px;
+      &.selected {
+        @apply text-green;
+      }
+    }
+  }
+}

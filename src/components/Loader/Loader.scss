@@ -1,0 +1,7 @@
+.loader {
+  @apply grid place-content-center h-screen w-screen;
+  svg {
+    width: 100px;
+    height: 100px;
+  }
+}
