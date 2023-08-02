@@ -1,12 +1,35 @@
 #home {
-  @apply w-full;
-  height: calc(100vh - 85px);
+  @apply w-full ml-0 sm:ml-[10%] md:ml-[15%] lg:ml-[20%];
+  height: 100vh;
   width: fit-content;
-  margin-left: 20%;
-  padding-top: 12%;
+  padding-top: 8%;
+
+  svg.name {
+    .anim1 {
+      fill: none;
+      stroke: rgb(242 242 242 / 0.6);
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+      stroke-width: 1px;
+      // stroke-dasharray: 2824.187744140625;
+      // stroke-dashoffset: 2824.187744140625;
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      animation: draw 4s ease-in-out 0.1s forwards;
+    }
+  }
+  @keyframes draw {
+    from {
+      stroke-width: 0px;
+    }
+    to {
+      stroke-dashoffset: 0;
+      stroke-width: 10px;
+    }
+  }
 
   .gradient-border {
-    @apply border-y-0 md:pl-12 px-3;
+    @apply border-y-0 pl-12 px-3;
     border-image-source: linear-gradient(0deg, var(--g1) 0%, var(--g2) 100%);
     border-image-slice: 1;
   }
@@ -62,7 +85,6 @@
 .tag-child::before,
 .tag-child::after {
   position: absolute;
-
   font-family: "La Belle Aurore", cursive;
   font-size: 1rem;
   color: rgba(242, 242, 242, 0.2);
@@ -80,17 +102,15 @@
 }
 
 .tags {
+  display: flex;
+  height: 4rem;
   color: #515152;
-  position: absolute;
-  bottom: 0;
-  left: 17%;
   font-size: 1rem;
   font-family: "La Belle Aurore", cursive;
 }
 
-.top-tags {
-  bottom: auto;
-  top: 12%;
+.bottom-tags {
+  align-items: flex-end;
 }
 
 .top-tags:after {
@@ -98,12 +118,8 @@
   font-family: "La Belle Aurore", cursive;
   color: #515152;
   position: absolute;
-  margin-left: 2rem;
-}
-
-.bottom-tags {
-  bottom: 25%;
-  top: auto;
+  margin-left: 1.5rem;
+  margin-top: 2rem;
 }
 
 .bottom-tags:before {
@@ -111,28 +127,22 @@
   font-family: "La Belle Aurore", cursive;
   color: #515152;
   position: absolute;
+  margin-bottom: 1.5rem;
   margin-left: 2rem;
 }
 
 @media (max-width: 640px) {
+  #home {
+    margin: 0;
+    padding: 0;
+  }
   .text2,
   .text3,
   .fancy {
     font-size: 28px !important;
   }
-  .tag-child::before,
-  .tag-child::after,
-  .tags {
-    left: 0px;
-  }
-  .top-tags {
-    top: 15%;
-  }
-  .bottom-tags {
-    bottom: 0;
-  }
-
   .intro-text {
+    @apply max-w-sm;
     font-size: 14px !important;
     line-height: 20px !important;
   }

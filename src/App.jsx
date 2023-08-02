@@ -42,21 +42,19 @@ function App() {
       {isLoading ? (
         <Loader />
       ) : (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 3 }}
-        >
+        <motion.div>
           <div className="absolute z-20 pointer-events-none">
             <Cursor />
           </div>
           <Social />
-          <div className="fixed top-0 w-full backdrop-blur z-10">
+          <div className="fixed top-0 w-full backdrop-blur z-10 mb-24">
             <Topbar />
           </div>
-          <Home />
-          <Skills />
-          <Footer />
+          <div>
+            <Home />
+            <Skills />
+            <Footer />
+          </div>
         </motion.div>
       )}
     </Fragment>
