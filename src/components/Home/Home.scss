@@ -5,26 +5,47 @@
   padding-top: 8%;
 
   svg.name {
-    .anim1 {
-      fill: none;
-      stroke: rgb(242 242 242 / 0.6);
+    .anim1,
+    text {
+      font-size: clamp(40px, 8vw, 75px);
+      // font-size: clamp(40px, 5vw, 60px);
+      font-family: "Lora", serif;
+      font-weight: 700;
+      // fill: rgb(242 242 242 / 0.6);
+      // stroke: rgb(242 242 242 / 0.6);
+      stroke: #08fdd8;
       stroke-linecap: round;
       stroke-miterlimit: 10;
       stroke-width: 1px;
-      // stroke-dasharray: 2824.187744140625;
-      // stroke-dashoffset: 2824.187744140625;
       stroke-dasharray: 800;
       stroke-dashoffset: 800;
-      animation: draw 4s ease-in-out 0.1s forwards;
+      // animation: draw 4s ease-in-out 0.1s forwards;
+      animation: textAnimate 5s infinite alternate;
     }
   }
   @keyframes draw {
     from {
-      stroke-width: 0px;
+      stroke-width: 0;
     }
     to {
       stroke-dashoffset: 0;
-      stroke-width: 10px;
+      fill: rgb(242 242 242);
+    }
+  }
+
+  @keyframes textAnimate {
+    0% {
+      stroke-dasharray: 0 50%;
+      stroke-dashoffset: 20%;
+      // fill: rgb(242 242 242 / 0.6);
+      fill: hsl(189, 68%, 75%);
+    }
+
+    100% {
+      stroke-dasharray: 50% 0;
+      stroke-dashoffset: -20%;
+      // fill: rgb(242 242 242);
+      fill: hsla(189, 68%, 75%, 0%);
     }
   }
 
@@ -35,7 +56,7 @@
   }
 
   .intro {
-    @apply relative max-w-3xl text-left flex flex-col gap-5 text-gray;
+    @apply relative max-w-3xl text-left flex flex-col gap-4 text-gray;
 
     > * {
       position: relative;
