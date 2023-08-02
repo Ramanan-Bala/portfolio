@@ -22,7 +22,6 @@ const Topbar = () => {
         if (window.pageYOffset >= sectionTop - 60)
           current = section.getAttribute("id");
       });
-      console.log(current);
 
       navLi.forEach((li, id) => {
         li.classList.remove("selected");
@@ -35,7 +34,6 @@ const Topbar = () => {
       if (current === "") {
         navLi[0].classList.add("selected");
         handelNavActive(0);
-        console.log(left, selected);
       }
     };
   });

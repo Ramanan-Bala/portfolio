@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { Fragment, useEffect } from "react";
 
 import {
   Cursor,
@@ -12,13 +12,15 @@ import {
 
 import { useState } from "react";
 
+import { motion } from "framer-motion";
+
 function App() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 6500);
     // Get the ID from the URL
     const url = new URL(window.location.href);
     const id = url.hash.substring(1); // Remove the "#" symbol from the ID
@@ -36,11 +38,15 @@ function App() {
   });
 
   return (
-    <React.Fragment>
+    <Fragment>
       {isLoading ? (
         <Loader />
       ) : (
-        <>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 3 }}
+        >
           <div className="absolute z-20 pointer-events-none">
             <Cursor />
           </div>
@@ -51,9 +57,9 @@ function App() {
           <Home />
           <Skills />
           <Footer />
-        </>
+        </motion.div>
       )}
-    </React.Fragment>
+    </Fragment>
   );
 }
 

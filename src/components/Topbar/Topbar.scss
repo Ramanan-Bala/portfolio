@@ -30,12 +30,15 @@
       width: 83px;
     }
     a {
-      @apply rounded-full cursor-pointer;
+      @apply rounded-full cursor-pointer w-full text-center;
       padding-inline: 15px;
       padding-block: 8px;
       &.selected {
         @apply text-green;
       }
+    }
+    &:hover a:not(:hover) {
+      filter: blur(2px);
     }
   }
 }

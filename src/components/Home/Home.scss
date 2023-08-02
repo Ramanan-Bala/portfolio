@@ -19,7 +19,7 @@
     }
 
     .intro-text {
-      @apply text-base max-w-2xl text-gray leading-6 md:h-[100px] h-[120px];
+      @apply text-base max-w-2xl text-gray/60 leading-6 md:h-[100px] h-[120px];
       font-family: "Inconsolata";
     }
 
@@ -47,7 +47,7 @@
   }
 
   .fancy {
-    @apply flex items-center justify-center text-green;
+    @apply flex items-center justify-center text-green/60;
     font-family: "La Belle Aurore", cursive;
     font-size: clamp(25px, 8vw, 50px);
     line-height: 1;
